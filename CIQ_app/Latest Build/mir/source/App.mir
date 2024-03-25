@@ -6,111 +6,227 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 4; ]
 using Toybox.BluetoothLowEnergy as :BLE;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 8; @position = 4; ]
-var SOUND_VAL;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 9; @position = 4; ]
-var TEMP_VAL;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 5; ]
+using Toybox.FitContributor;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 6; ]
+using Toybox.ActivityRecording;
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 10; @position = 4; ]
-var SUBSCRIPTION_COUNT = 0;
+var SOUND_VAL;
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 11; @position = 4; ]
+var TEMP_VAL;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 12; @position = 4; ]
+var SUBSCRIPTION_COUNT = 0;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 13; @position = 4; ]
 var SETTINGS_AVAILABLE = false;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 14; @position = 4; ]
-var SOUND_THRESHOLD = 80;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 15; @position = 4; ]
-var TEMP_MIN_THRESHOLD = 20;
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 16; @position = 4; ]
+var SOUND_THRESHOLD = 80;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 17; @position = 4; ]
+var TEMP_MIN_THRESHOLD = 20;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 18; @position = 4; ]
 var TEMP_MAX_THRESHOLD = 35;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 19; @position = 4; ]
-var SOUND_THRESH_RANGE_LOW = 5;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 20; @position = 4; ]
-var SOUND_THRESH_RANGE_HI = 200;
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 21; @position = 4; ]
-var TEMP_THRESH_RANGE_LOW = -20;
+var SOUND_THRESH_RANGE_LOW = 5;
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 22; @position = 4; ]
+var SOUND_THRESH_RANGE_HI = 200;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 23; @position = 4; ]
+var TEMP_THRESH_RANGE_LOW = -20;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 24; @position = 4; ]
 var TEMP_THRESH_RANGE_HI = 40;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 25; @position = 4; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 27; @position = 4; ]
 var SOUND_THRESH_INCREMENT = 5;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 26; @position = 4; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 28; @position = 4; ]
 var TEMP_THRESH_INCREMENT = 1;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 29; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 31; ]
 enum BACK_PICKERS {
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 30; @position = 4; ]
-    SOUND_PICKER,
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 31; @position = 4; ]
-    TEMP_MIN_PICKER,
     [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 32; @position = 4; ]
+    SOUND_PICKER,
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 33; @position = 4; ]
+    TEMP_MIN_PICKER,
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 34; @position = 4; ]
     TEMP_MAX_PICKER
 }
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 36; @position = 4; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 38; @position = 4; ]
 var NOTIFICATION_DELAY = 15000;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 37; @position = 4; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 39; @position = 4; ]
 var VIBE_DURATION = 2000;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 40; @position = 4; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 42; @position = 4; ]
 var BLE_DELEGATE;
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 43; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 45; @position = 4; ]
+var SENSORY_ACTIVITY_SESSION;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 46; @position = 4; ]
+var SOUND_VALUE_FIELD;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 47; @position = 4; ]
+var SOUND_THRESH_FIELD;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 48; @position = 4; ]
+var TEMP_VALUE_FIELD;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 49; @position = 4; ]
+var TEMP_MIN_THRESH_FIELD;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 50; @position = 4; ]
+var TEMP_MAX_THRESH_FIELD;
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 53; ]
 class CIQApp extends Application.AppBase{
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 43; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 53; ]
     <init> {
     }
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 43; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 53; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 45; @position = 16; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 55; @position = 16; ]
     private
     var _view;
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 47; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 57; ]
     function initialize() as Void {
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_47_26_start:
-[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 48 8 ]
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_57_26_start:
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 58 8 ]
         %tmp.2 = getv ? :AppBase;
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 49 8 ]
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 59 8 ]
         %tmp.7 = getv ? :BLEScanner;
         %tmp.4 = newc %tmp.7 ();
         putv self :_view %tmp.4;
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_47_26_stop:
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_57_26_stop:
     }
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 53; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 63; ]
     function onStart(state as Dictionary or Null) as Void {
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_53_51_start:
-[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 55 8 ]
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_63_51_start:
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 65 8 ]
         %tmp.4 = getv ? :Delegate;
         %tmp.1 = newc %tmp.4 ();
         putv self :BLE_DELEGATE %tmp.1;
-[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 56 8 ]
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 66 8 ]
         %tmp.5 = getm $.Toybox.BluetoothLowEnergy;
         %tmp.6 = getv function %tmp.5 :setDelegate;
         %tmp.8 = getv ? :BLE_DELEGATE;
         invoke %tmp.5 %tmp.6(%tmp.8);
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_53_51_stop:
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 69 8 ]
+        %tmp.9 = getm $.Toybox.ActivityRecording;
+        %tmp.10 = getv function %tmp.9 :createSession;
+        %tmp.11 = newd 2;
+        %tmp.13 = const :sport;
+        %tmp.15 = getv ? :Activity;
+        %tmp.16 = getv %tmp.15 :SPORT_GENERIC;
+        %tmp.17 = dup %tmp.11;
+        %tmp.18 = aputv %tmp.17 %tmp.13 %tmp.16;
+        %tmp.20 = const :name;
+        %tmp.21 = "Sensory Overload Monitor";
+        %tmp.22 = dup %tmp.18;
+        %tmp.23 = aputv %tmp.22 %tmp.20 %tmp.21;
+        %tmp.24 = invoke %tmp.9 %tmp.10(%tmp.23);
+        putv self :SENSORY_ACTIVITY_SESSION %tmp.24;
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 70 8 ]
+        %tmp.26 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.27 = getv function %tmp.26 :createField;
+        %tmp.28 = "Current Sound Value";
+        %tmp.29 = 1;
+        %tmp.30 = getm $.Toybox.FitContributor;
+        %tmp.31 = getv %tmp.30 :DATA_TYPE_UINT8;
+        %tmp.32 = newd 1;
+        %tmp.34 = const :mesgType;
+        %tmp.35 = getm $.Toybox.FitContributor;
+        %tmp.36 = getv %tmp.35 :MESG_TYPE_RECORD;
+        %tmp.37 = dup %tmp.32;
+        %tmp.38 = aputv %tmp.37 %tmp.34 %tmp.36;
+        %tmp.39 = invoke %tmp.26 %tmp.27(%tmp.28, %tmp.29, %tmp.31, %tmp.38);
+        putv self :SOUND_VALUE_FIELD %tmp.39;
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 71 8 ]
+        %tmp.41 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.42 = getv function %tmp.41 :createField;
+        %tmp.43 = "Maximum Sound Threshold";
+        %tmp.44 = 2;
+        %tmp.45 = getm $.Toybox.FitContributor;
+        %tmp.46 = getv %tmp.45 :DATA_TYPE_UINT8;
+        %tmp.47 = newd 1;
+        %tmp.49 = const :mesgType;
+        %tmp.50 = getm $.Toybox.FitContributor;
+        %tmp.51 = getv %tmp.50 :MESG_TYPE_RECORD;
+        %tmp.52 = dup %tmp.47;
+        %tmp.53 = aputv %tmp.52 %tmp.49 %tmp.51;
+        %tmp.54 = invoke %tmp.41 %tmp.42(%tmp.43, %tmp.44, %tmp.46, %tmp.53);
+        putv self :SOUND_THRESH_FIELD %tmp.54;
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 72 8 ]
+        %tmp.56 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.57 = getv function %tmp.56 :createField;
+        %tmp.58 = "Current Temperature Value";
+        %tmp.59 = 3;
+        %tmp.60 = getm $.Toybox.FitContributor;
+        %tmp.61 = getv %tmp.60 :DATA_TYPE_FLOAT;
+        %tmp.62 = newd 1;
+        %tmp.64 = const :mesgType;
+        %tmp.65 = getm $.Toybox.FitContributor;
+        %tmp.66 = getv %tmp.65 :MESG_TYPE_RECORD;
+        %tmp.67 = dup %tmp.62;
+        %tmp.68 = aputv %tmp.67 %tmp.64 %tmp.66;
+        %tmp.69 = invoke %tmp.56 %tmp.57(%tmp.58, %tmp.59, %tmp.61, %tmp.68);
+        putv self :TEMP_VALUE_FIELD %tmp.69;
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 73 8 ]
+        %tmp.71 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.72 = getv function %tmp.71 :createField;
+        %tmp.73 = "Minimum Temperature Threshold";
+        %tmp.74 = 4;
+        %tmp.75 = getm $.Toybox.FitContributor;
+        %tmp.76 = getv %tmp.75 :DATA_TYPE_FLOAT;
+        %tmp.77 = newd 1;
+        %tmp.79 = const :mesgType;
+        %tmp.80 = getm $.Toybox.FitContributor;
+        %tmp.81 = getv %tmp.80 :MESG_TYPE_RECORD;
+        %tmp.82 = dup %tmp.77;
+        %tmp.83 = aputv %tmp.82 %tmp.79 %tmp.81;
+        %tmp.84 = invoke %tmp.71 %tmp.72(%tmp.73, %tmp.74, %tmp.76, %tmp.83);
+        putv self :TEMP_MIN_THRESH_FIELD %tmp.84;
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 74 8 ]
+        %tmp.86 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.87 = getv function %tmp.86 :createField;
+        %tmp.88 = "Maximum Temperature Threshold";
+        %tmp.89 = 5;
+        %tmp.90 = getm $.Toybox.FitContributor;
+        %tmp.91 = getv %tmp.90 :DATA_TYPE_FLOAT;
+        %tmp.92 = newd 1;
+        %tmp.94 = const :mesgType;
+        %tmp.95 = getm $.Toybox.FitContributor;
+        %tmp.96 = getv %tmp.95 :MESG_TYPE_RECORD;
+        %tmp.97 = dup %tmp.92;
+        %tmp.98 = aputv %tmp.97 %tmp.94 %tmp.96;
+        %tmp.99 = invoke %tmp.86 %tmp.87(%tmp.88, %tmp.89, %tmp.91, %tmp.98);
+        putv self :TEMP_MAX_THRESH_FIELD %tmp.99;
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_63_51_stop:
     }
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 60; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 78; ]
     function onStop(state as Dictionary or Null) as Void {
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_78_50_start:
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 79 8 ]
+        %tmp.2 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.3 = getv function %tmp.2 :stop;
+        invoke %tmp.2 %tmp.3();
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 80 8 ]
+        %tmp.5 = getv ? :SENSORY_ACTIVITY_SESSION;
+        %tmp.6 = getv function %tmp.5 :save;
+        invoke %tmp.5 %tmp.6();
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_78_50_stop:
     }
-    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 64; ]
+    [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 84; ]
     function getInitialView() as Array<Views or InputDelegates> or Null {
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_64_65_start:
-[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 65 8 ]
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_84_65_start:
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 85 8 ]
         %tmp.1 = newa Array<Views or InputDelegates> 1;
         %tmp.3 = getv ? :_view;
         %tmp.4 = dup %tmp.1;
         %tmp.5 = aputv %tmp.4 0 %tmp.3;
         ret %tmp.5;
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_64_65_stop:
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_84_65_stop:
     }
 }
-[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 70; ]
+[ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 90; ]
 function getApp() as CIQApp {
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_70_28_start:
-[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 71 4 ]
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_90_28_start:
+[ "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc" 91 4 ]
     %tmp.1 = getm $.Toybox.Application;
     %tmp.2 = getv function %tmp.1 :getApp;
     %tmp.3 = invoke %tmp.1 %tmp.2();
     %tmp.4 = as %tmp.3 CIQApp;
     ret %tmp.4;
-C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_70_28_stop:
+C_Users_Harry_Desktop_sensory_device_CIQ_app_CIQ_source_App_mc_90_28_stop:
 }
 [ @file = "C:\Users\Harry\Desktop\sensory-device\CIQ_app\CIQ\source\App.mc"; @line = 1; ]
 <init> {

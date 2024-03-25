@@ -1,8 +1,23 @@
 <strings>
-    <string id="AppName">CIQ Trigger Sensor</string>
+    <string id="AppName">Sensory Monitor</string>
 
     <string id="prompt">Click the menu button</string>
 
     <string id="menu_label_1">Item 1</string>
     <string id="menu_label_2">Item 2</string>
+
+    <string id="sound_value_chart_title">Sound Value vs. Time</string>
+    <string id="sound_threshold_chart_title">Sound Threshold vs. Time</string>
+    <string id="temp_value_chart_title">Temperature Value vs. Time</string>
+    <string id="temp_min_threshold_chart_title">Min Temp Threshold vs. Time</string>
+    <string id="temp_max_threshold_chart_title">Max Temp Threshold vs. Time</string>
+
+    <string id="current_sound_label">Sound Value</string>
+    <string id="current_sound_threshold_label">Sound Threshold</string>
+    <string id="current_temp_label">Temperature Value</string>
+    <string id="current_min_temp_threshold_label">Minimim Temperature Threshold</string>
+    <string id="current_max_temp_threshold_label">Maximim Temperature Threshold</string>
+
+    <string id="sound_units">dB</string>
+    <string id="temp_units">°C</string>
 </strings>

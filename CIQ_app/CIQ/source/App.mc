@@ -2,6 +2,8 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 using Toybox.BluetoothLowEnergy as BLE;
+using Toybox.FitContributor;
+using Toybox.ActivityRecording;
 
 // ------------------------------ GLOBALS ------------------------------
 // Current Values
@@ -39,6 +41,14 @@ var VIBE_DURATION = 2000; // vibration duration in ms
 // Delegates
 var BLE_DELEGATE;
 
+// Activity variables for historical plotting
+var SENSORY_ACTIVITY_SESSION;
+var SOUND_VALUE_FIELD;
+var SOUND_THRESH_FIELD;
+var TEMP_VALUE_FIELD;
+var TEMP_MIN_THRESH_FIELD;
+var TEMP_MAX_THRESH_FIELD;
+
 // ------------------------------ CLASSES ------------------------------
 class CIQApp extends Application.AppBase {
 
@@ -54,10 +64,20 @@ class CIQApp extends Application.AppBase {
         // set up/check BLE connection here
         BLE_DELEGATE = new Delegate();
         BLE.setDelegate(BLE_DELEGATE);
+
+        // Setup activity session
+        SENSORY_ACTIVITY_SESSION = ActivityRecording.createSession({:sport=>Activity.SPORT_GENERIC, :name=>"Sensory Overload Monitor"});
+        SOUND_VALUE_FIELD = SENSORY_ACTIVITY_SESSION.createField("Current Sound Value", 1, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_RECORD});
+        SOUND_THRESH_FIELD = SENSORY_ACTIVITY_SESSION.createField("Maximum Sound Threshold", 2, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_RECORD});
+        TEMP_VALUE_FIELD = SENSORY_ACTIVITY_SESSION.createField("Current Temperature Value", 3, FitContributor.DATA_TYPE_FLOAT, {:mesgType => FitContributor.MESG_TYPE_RECORD});
+        TEMP_MIN_THRESH_FIELD = SENSORY_ACTIVITY_SESSION.createField("Minimum Temperature Threshold", 4, FitContributor.DATA_TYPE_FLOAT, {:mesgType => FitContributor.MESG_TYPE_RECORD});
+        TEMP_MAX_THRESH_FIELD = SENSORY_ACTIVITY_SESSION.createField("Maximum Temperature Threshold", 5, FitContributor.DATA_TYPE_FLOAT, {:mesgType => FitContributor.MESG_TYPE_RECORD});
     }
 
     // onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {
+        SENSORY_ACTIVITY_SESSION.stop();
+        SENSORY_ACTIVITY_SESSION.save();
     }
 
     // Return the initial view of your application here

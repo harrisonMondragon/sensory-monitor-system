@@ -1,0 +1,56 @@
+ <fitContributions>
+  <fitField
+    id="1"
+    displayInChart="true"
+    sortOrder = "0"
+    precision="0"
+    chartTitle="@Strings.sound_value_chart_title"
+    dataLabel="@Strings.current_sound_label"
+    unitLabel="@Strings.sound_units"
+    fillColor="#000000"
+  />
+
+  <fitField
+    id="2"
+    displayInChart="true"
+    sortOrder = "1"
+    precision="0"
+    chartTitle="@Strings.sound_threshold_chart_title"
+    dataLabel="@Strings.current_sound_threshold_label"
+    unitLabel="@Strings.sound_units"
+    fillColor="#00FF00"
+  />
+
+  <fitField
+    id="3"
+    displayInChart="true"
+    sortOrder = "2"
+    precision="0"
+    chartTitle="@Strings.temp_value_chart_title"
+    dataLabel="@Strings.current_temp_label"
+    unitLabel="@Strings.temp_units"
+    fillColor="#000000"
+  />
+
+  <fitField
+    id="4"
+    displayInChart="true"
+    sortOrder = "3"
+    precision="0"
+    chartTitle="@Strings.temp_min_threshold_chart_title"
+    dataLabel="@Strings.current_min_temp_threshold_label"
+    unitLabel="@Strings.temp_units"
+    fillColor="#0000FF"
+  />
+
+  <fitField
+    id="5"
+    displayInChart="true"
+    sortOrder = "4"
+    precision="0"
+    chartTitle="@Strings.temp_max_threshold_chart_title"
+    dataLabel="@Strings.current_max_temp_threshold_label"
+    unitLabel="@Strings.temp_units"
+    fillColor="#FF0000"
+  />
+</fitContributions>

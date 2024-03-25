@@ -55,6 +55,8 @@ class Delegate extends BLE.BleDelegate {
 
             WatchUi.switchToView(new Connecting(), new SensoryBehaviorDelegate(new BLEScanner(), null), WatchUi.SLIDE_IMMEDIATE);
         } else {
+            SENSORY_ACTIVITY_SESSION.stop();
+            SENSORY_ACTIVITY_SESSION.discard();
             self.device = null;
             SUBSCRIPTION_COUNT = 0;
             WatchUi.switchToView(new SensorDisconnected(), new SensoryBehaviorDelegate(new BLEScanner(), null), WatchUi.SLIDE_IMMEDIATE);
@@ -69,6 +71,7 @@ class Delegate extends BLE.BleDelegate {
             SUBSCRIPTION_COUNT = SUBSCRIPTION_COUNT + 1;
             System.println("Subscribed to " + SUBSCRIPTION_COUNT + " notification(s).");
             if (SUBSCRIPTION_COUNT >= 2){ // subscribed to our chars
+                SENSORY_ACTIVITY_SESSION.start();
                 WatchUi.switchToView(new HomeDisplay(), new SensoryBehaviorDelegate(null, null), WatchUi.SLIDE_IMMEDIATE);
             } else { // still missing one
                 queue.run();
@@ -80,11 +83,26 @@ class Delegate extends BLE.BleDelegate {
         if(char.getUuid().equals(TEMP_UUID)){
             TEMP_VAL = val.decodeNumber(Lang.NUMBER_FORMAT_FLOAT, {});
             // System.println("Temp changed to: " + TEMP_VAL);
+
+            // Record data in the session
+            TEMP_VALUE_FIELD.setData(TEMP_VAL);
+            if (TEMP_MIN_THRESHOLD != null){
+                TEMP_MIN_THRESH_FIELD.setData(TEMP_MIN_THRESHOLD);
+            }
+            if (TEMP_MAX_THRESHOLD != null){
+                TEMP_MAX_THRESH_FIELD.setData(TEMP_MAX_THRESHOLD);
+            }
         }
 
         else if (char.getUuid().equals(SOUND_UUID)){
             SOUND_VAL = val.decodeNumber(NUMBER_FORMAT_UINT8, {});
             // System.println("Sound changed to: " + SOUND_VAL);
+
+            // Record data in the session
+            SOUND_VALUE_FIELD.setData(SOUND_VAL);
+            if (SOUND_THRESHOLD != null){
+                SOUND_THRESH_FIELD.setData(SOUND_THRESHOLD);
+            }
         }
         WatchUi.requestUpdate(); // update what ever watch face is displayed
     }
